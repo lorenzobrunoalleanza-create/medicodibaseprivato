@@ -1,15 +1,1226 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Medico di Base Privato</title>
-<style>
-body { margin:0; padding:0; overflow:hidden; }
-iframe { width:100%; height:100vh; border:none; }
-</style>
-</head>
+
+<!DOCTYPE html><html lang="it"><head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Medico di Base Privato Cagliari | Visite Rapide Senza Attesa</title>
+    <meta name="description" content="Medico di base privato a Cagliari in Via Ugo Foscolo. Visite immediate, senza liste d&#39;attesa. Prenota ora: chiama 3517607495 o scrivi su WhatsApp."/>
+    <meta name="keywords" content="medico di base privato Cagliari, medico generico privato Cagliari, visita medica privata Cagliari, dottore privato Cagliari"/>
+    
+    <!-- Schema LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalBusiness",
+      "name": "Medico di Base Privato Cagliari",
+      "description": "Servizio di medicina generale privata a Cagliari. Visite immediate senza lista d'attesa.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Via Ugo Foscolo 51/53",
+        "addressLocality": "Cagliari",
+        "addressRegion": "CA",
+        "postalCode": "09124",
+        "addressCountry": "IT"
+      },
+      "telephone": "+393517607495",
+      "email": "info@medicodibaseprivato.it",
+      "openingHours": ["Tu 10:00-13:00", "Fr 15:00-19:00"],
+      "priceRange": "€",
+      "url": "https://www.medicodibaseprivato.it"
+    }
+    </script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #4A9B8E;
+            --primary-dark: #3D8579;
+            --primary-light: #E8F5F3;
+            --text: #2D3436;
+            --text-light: #636E72;
+            --white: #FFFFFF;
+            --bg-light: #F8F9FA;
+            --cta-orange: #E67E22;
+            --whatsapp: #25D366;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        /* Top Phone Banner */
+        .phone-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            z-index: 2000;
+            padding: 12px 20px;
+        }
+        
+        .phone-banner-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+        }
+        
+        .phone-banner-text {
+            color: var(--white);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        
+        .phone-banner-buttons {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .banner-btn-call {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--white);
+            color: var(--primary);
+            padding: 10px 22px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .banner-btn-call:hover {
+            background: var(--primary-light);
+            transform: translateY(-1px);
+        }
+        
+        .banner-btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--whatsapp);
+            color: var(--white);
+            padding: 10px 22px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .banner-btn-whatsapp:hover {
+            background: #128C7E;
+            transform: translateY(-1px);
+        }
+        
+        /* Header */
+        .header {
+            position: fixed;
+            top: 56px;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .nav {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav a:hover {
+            color: var(--primary);
+        }
+        
+        .header-phone {
+            background: var(--primary);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+        
+        .header-phone:hover {
+            background: var(--primary-dark);
+        }
+        
+        /* About Section */
+        .about-section {
+            padding: 100px 40px;
+            background: linear-gradient(135deg, var(--primary-light) 0%, #f0f9f7 100%);
+        }
+        
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .about-content h2 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        
+        .about-content h2 span {
+            color: var(--primary);
+            display: block;
+        }
+        
+        .about-underline {
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            margin-bottom: 25px;
+        }
+        
+        .about-content p {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            line-height: 1.9;
+            margin-bottom: 18px;
+        }
+        
+        .about-badge {
+            display: inline-block;
+            background: var(--white);
+            color: var(--primary);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 10px;
+            box-shadow: 0 2px 10px rgba(74,155,142,0.15);
+        }
+        
+        .about-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .about-image-inner {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 50px 40px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+            max-width: 380px;
+        }
+        
+        .about-image-inner .icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        
+        .about-image-inner h4 {
+            font-size: 1.3rem;
+            color: var(--text);
+            margin-bottom: 15px;
+        }
+        
+        .about-image-inner p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 185px 40px 80px;
+            background: var(--white);
+        }
+        
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .hero-image {
+            position: relative;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+        
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        
+        .hero-content h1 span {
+            color: var(--primary);
+            display: block;
+        }
+        
+        .hero-underline {
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            margin-bottom: 25px;
+        }
+        
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--primary);
+            color: var(--white);
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(74, 155, 142, 0.3);
+        }
+        
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--whatsapp);
+            color: var(--white);
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .btn-whatsapp:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 100px 40px;
+            background: var(--bg-light);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 60px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+        
+        .service-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+        
+        .service-card h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .service-card p {
+            color: var(--text-light);
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 40px;
+            background: var(--white);
+        }
+        
+        .cta-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .cta-content h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        
+        .cta-underline {
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            margin-bottom: 25px;
+        }
+        
+        .cta-content p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        
+        .cta-image img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+        
+        /* Info Section */
+        .info-section {
+            padding: 100px 40px;
+            background: var(--primary-light);
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+        
+        .contact-form {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+        }
+        
+        .contact-form h3 {
+            font-size: 1.5rem;
+            color: var(--text);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .btn-submit {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: var(--primary);
+            color: var(--white);
+            padding: 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-submit:hover {
+            background: var(--primary-dark);
+        }
+        
+        .info-box {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+        }
+        
+        .info-box h3 {
+            font-size: 1.5rem;
+            color: var(--text);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .info-box h3 span {
+            font-size: 1.8rem;
+        }
+        
+        .hour-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+        
+        .hour-row:last-child {
+            border-bottom: none;
+        }
+        
+        .hour-row .day {
+            font-weight: 500;
+            color: var(--text);
+        }
+        
+        .hour-row .time {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+        
+        .contact-item a {
+            color: var(--text);
+            text-decoration: none;
+        }
+        
+        .contact-item a:hover {
+            color: var(--primary);
+        }
+        
+        /* Service Details Section */
+        .service-details {
+            padding: 100px 40px;
+            background: var(--bg-light);
+        }
+        
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+        
+        .details-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+        }
+        
+        .details-card h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        
+        .details-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .details-card ul li {
+            padding: 10px 0;
+            padding-left: 28px;
+            position: relative;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+        
+        .details-card ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        .details-card ul li.not-included::before {
+            content: '✗';
+            color: #e74c3c;
+        }
+        
+        .details-card p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            padding: 100px 40px;
+            background: var(--white);
+        }
+        
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: var(--bg-light);
+            border-radius: 12px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 22px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text);
+            transition: background 0.3s;
+        }
+        
+        .faq-question:hover {
+            background: var(--primary-light);
+        }
+        
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary);
+            transition: transform 0.3s;
+        }
+        
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 0 25px 22px;
+            max-height: 300px;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            padding: 60px 40px 30px;
+            color: var(--white);
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+        
+        .footer-col h4 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .footer-col p, .footer-col a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            line-height: 1.8;
+        }
+        
+        .footer-col a:hover {
+            text-decoration: underline;
+        }
+        
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            text-align: center;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background: var(--whatsapp);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--white);
+            text-decoration: none;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: all 0.3s;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .phone-banner-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .phone-banner-text {
+                font-size: 0.9rem;
+                text-align: center;
+            }
+            
+            .phone-banner-buttons {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .header {
+                top: 85px;
+            }
+            
+            .header-container {
+                padding: 0 20px;
+            }
+            
+            .nav {
+                display: none;
+            }
+            
+            .hero-container,
+            .cta-container,
+            .about-container,
+            .info-grid,
+            .details-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .hero {
+                padding: 175px 20px 60px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-image img,
+            .cta-image img {
+                height: 350px;
+            }
+            
+            .services-grid,
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .services,
+            .about-section,
+            .cta-section,
+            .info-section,
+            .faq-section {
+                padding: 60px 20px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .cta-content h2 {
+                font-size: 2rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .phone-banner {
+                padding: 10px 15px;
+            }
+            
+            .phone-banner-text {
+                font-size: 0.8rem;
+            }
+            
+            .phone-banner-buttons {
+                gap: 8px;
+            }
+            
+            .banner-btn-call,
+            .banner-btn-whatsapp {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+            }
+            
+            .header {
+                top: 78px;
+            }
+            
+            .hero {
+                padding: 165px 20px 50px;
+            }
+            
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .btn-primary,
+            .btn-whatsapp {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .about-content h2 {
+                font-size: 1.9rem;
+            }
+            
+            .about-section {
+                padding: 60px 20px;
+            }
+            
+            .cta-content h2 {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+<script src="https://www.kimi.com/sdk-seed.js" defer=""></script></head>
 <body>
-<iframe src="https://mhevkl7ofrd62.ok.kimi.link/"></iframe>
-</body>
-</html>
+    <!-- Phone Banner -->
+    <div class="phone-banner">
+        <div class="phone-banner-container">
+            <span class="phone-banner-text">📞 Prenota la tua visita: <strong>351 760 7495</strong></span>
+            <div class="phone-banner-buttons">
+                <a href="tel:3517607495" class="banner-btn-call">📞 Chiama Ora</a>
+                <a href="https://wa.me/393517607495" class="banner-btn-whatsapp">💬 WhatsApp</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <div style="font-size: 1.1rem; font-weight: 600; color: var(--text);">Dottoressa Maria Elena Ferrara</div>
+                <div style="font-size: 0.85rem; color: var(--primary); font-weight: 500;">Medico di base privato</div>
+            </div>
+            <nav class="nav">
+                <a href="#home">Home</a>
+                <a href="#chisono">Chi sono</a>
+                <a href="#servizi">Servizi</a>
+                <a href="#contatti">Contatti</a>
+            </nav>
+            <a href="https://wa.me/393517607495" class="header-phone">💬 WhatsApp</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-image">
+                <img src="images/hero-female-office.jpg" alt="Studio medico accogliente della Dottoressa Ferrara"/>
+            </div>
+            <div class="hero-content">
+                <h1>Medico di Base <span>Privato a Cagliari</span></h1>
+                <div class="hero-underline"></div>
+                <p>Hai bisogno di una visita medica rapida? Non hai il medico di base o è impossibile da raggiungere? Ti riceviamo in Via Ugo Foscolo a Cagliari con orari flessibili e tempi di attesa minimi. Visite in giornata, ricette bianche, referti immediati.</p>
+                <div class="hero-buttons">
+                    <a href="tel:3517607495" class="btn-primary">📞 Chiama Ora</a>
+                    <a href="https://wa.me/393517607495" class="btn-whatsapp">💬 WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="chisono">
+        <div class="container">
+            <div style="max-width: 800px; margin: 0 auto;">
+                <h2 style="text-align: center; font-size: 2.4rem; font-weight: 700; color: var(--text); line-height: 1.2; margin-bottom: 10px;">Dottoressa <span style="color: var(--primary);">Maria Elena Ferrara</span></h2>
+                <div style="width: 80px; height: 4px; background: var(--primary); margin: 0 auto 35px;"></div>
+                <p style="font-size: 1.05rem; color: var(--text-light); line-height: 1.9; margin-bottom: 18px;"><strong>La Dottoressa Maria Elena Ferrara</strong>, si è laureata in Medicina e Chirurgia con il massimo dei voti con lode nel 2005. Specialista in Malattie Infettive, ha lavorato per diversi anni sul territorio dove ha svolto attivitá di guardia medica e turistica e medicina generale.</p>
+                <p style="font-size: 1.05rem; color: var(--text-light); line-height: 1.9; margin-bottom: 18px;">Ha anche lavorato come <strong>dirigente medico di PS presso l&#39;ARNAS Brotzu</strong>.</p>
+                <p style="font-size: 1.05rem; color: var(--text-light); line-height: 1.9; margin-bottom: 25px;">Attualmente collabora come <strong>libero professionista</strong> con diverse strutture di Cagliari ed Hinterland sia nell&#39;emergenza urgenza, sia in collaborazione con specialisti ortopedici.</p>
+                <div style="text-align: center; margin-top: 30px;">
+                    <span style="display: inline-block; background: var(--white); color: var(--primary); padding: 10px 25px; border-radius: 50px; font-size: 0.95rem; font-weight: 600; box-shadow: 0 2px 10px rgba(74,155,142,0.15);">👩‍⚕️ Iscrizione Ordine dei Medici di Cagliari</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="servizi">
+        <div class="container">
+            <h2 class="section-title">I nostri servizi</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Visita di medicina generale</h3>
+                    <p>Valutazione completa dello stato di salute con anamnesi, esame obiettivo e rilevazione dei parametri vitali. Ideale per sintomi di nuova insorgenza e check-up periodici.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Prescrizioni e ricette</h3>
+                    <p>Rilascio di ricette bianche con terapia personalizzata. Interpretazione di referti di laboratorio e consulenza su farmaci e trattamenti.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Consulenza pre-viaggio</h3>
+                    <p>Valutazione dell&#39;idoneità fisica per viaggi internazionali. Consigli su vaccinazioni e precauzioni sanitarie in base alla destinazione.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Details Section -->
+    <section class="service-details">
+        <div class="container">
+            <h2 class="section-title">Dettagli del servizio</h2>
+            <p style="text-align: center; max-width: 900px; margin: -30px auto 50px; color: var(--text-light); font-size: 1.1rem; line-height: 1.8;">
+                Con la visita di medicina generale privata puoi effettuare una visita non specialistica effettuata da un medico. Prenotando una visita di questo tipo potrai accedere alle seguenti prestazioni:
+            </p>
+            <div class="details-grid">
+                <div class="details-card">
+                    <h3>📋 Cosa include la visita</h3>
+                    <ul>
+                        <li>Analisi dello stato di salute generale</li>
+                        <li>Valutazione dei sintomi di disturbi della salute o problematiche non specialistiche</li>
+                        <li>Stati influenzali</li>
+                        <li>Disturbi muscolo-articolari</li>
+                        <li>Sintomatologia di nuova insorgenza</li>
+                        <li>Consulenza medica pre-viaggio internazionale</li>
+                        <li>Lettura e interpretazione referti</li>
+                        <li>Prescrizione farmaci e ricette bianche (non rimborsabili SSN)</li>
+                    </ul>
+                    <p style="margin-top: 20px; font-size: 0.95rem;">
+                        La visita è preceduta dall&#39;anamnesi del paziente. Il medico effettua la rilevazione dei parametri vitali e procede con l&#39;esame obiettivo. Al termine, il medico prescrive una terapia o indirizza verso ulteriori accertamenti specialistici.
+                    </p>
+                </div>
+                <div class="details-card">
+                    <h3>🩺 Quando è indicata</h3>
+                    <ul>
+                        <li>Sintomi influenzali</li>
+                        <li>Lievi reazioni allergiche</li>
+                        <li>Arrossamenti, eritemi o escoriazioni cutanee</li>
+                        <li>Disturbi gastrointestinali</li>
+                        <li>Lievi traumi articolari</li>
+                        <li>Ustioni di tipo lieve, tagli o ferite superficiali</li>
+                        <li>Dolori articolari o scheletrici</li>
+                    </ul>
+                    <h3 style="margin-top: 30px; color: #e74c3c;">❌ Non è indicata per:</h3>
+                    <ul>
+                        <li class="not-included">Urgenze critiche (crisi respiratorie, dolori intensi, arresto cardiaco, paralisi, forte sanguinamento)</li>
+                        <li class="not-included">Certificati di malattia per INPS</li>
+                        <li class="not-included">Certificati per rinnovo patenti</li>
+                        <li class="not-included">Certificati di buona salute</li>
+                        <li class="not-included">Certificati per rinnovo visto</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="details-grid" style="margin-top: 40px;">
+                <div class="details-card">
+                    <h3>💡 Quando chiamarci</h3>
+                    <p>Il servizio di medicina generale privata è utile in tutti i casi in cui:</p>
+                    <ul>
+                        <li>Si necessita di una visita in tempi rapidi per la valutazione di stati di salute che non richiedono l&#39;accesso al pronto soccorso</li>
+                        <li>Il medico di famiglia è indisponibile o irraggiungibile</li>
+                    </ul>
+                </div>
+                <div class="details-card">
+                    <h3>👥 A chi è rivolto</h3>
+                    <ul>
+                        <li>Chi si trova a Cagliari per un periodo temporaneo e ha il medico di base in un&#39;altra città</li>
+                        <li>Cittadini esteri in trasferta di lavoro o per motivi di studio o svago</li>
+                        <li>Cittadini sprovvisti del medico di famiglia</li>
+                        <li>Cittadini impossibilitati a raggiungere il medico di famiglia</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <div class="cta-content">
+                <h2>Prenota la tua visita</h2>
+                <div class="cta-underline"></div>
+                <p>Non aspettare che il problema peggiori. Una visita rapida può fare la differenza. Ti offriamo disponibilità immediata, senza le lunghe liste d&#39;attesa del SSN. Prenota ora per garantirti il tuo appuntamento.</p>
+                <a href="tel:3517607495" class="btn-primary">📞 Prenota Ora</a>
+            </div>
+            <div class="cta-image">
+                <img src="images/stethoscope-clipboard.jpg" alt="Stetoscopio e cartella clinica"/>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Domande frequenti</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">Devo essere residente a Cagliari per fare la visita?</div>
+                    <div class="faq-answer">No, il servizio è aperto a tutti: residenti, turisti, lavoratori fuori sede e studenti. Non è necessaria alcuna iscrizione o residenza a Cagliari.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Quanto costa la visita?</div>
+                    <div class="faq-answer">Offriamo tariffe competitive e trasparenti. Chiama il 351 760 7495 per conoscere il prezzo attuale della visita di medicina generale privata.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Posso usare la ricetta per il SSN?</div>
+                    <div class="faq-answer">Rilasciamo ricette bianche (non convenzionate con il SSN). I farmaci prescritti saranno a carico del paziente e non rimborsabili dal Servizio Sanitario Nazionale.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Devo prenotare con largo anticipo?</div>
+                    <div class="faq-answer">No, uno dei vantaggi del nostro servizio è proprio la rapidità. Spesso riusciamo a darti un appuntamento in giornata o entro 24-48 ore.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Cosa devo portare alla visita?</div>
+                    <div class="faq-answer">Porta tutta la documentazione medica necessaria: documento di identità valido, tessera sanitaria, eventuali referti recenti, esami del sangue, radiografie e l&#39;elenco completo dei farmaci che stai assumendo.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section - Contatti -->
+    <section class="info-section" id="contatti">
+        <div class="container">
+            <h2 class="section-title">Orari e Contatti</h2>
+            <div class="info-grid">
+                <div class="info-box">
+                    <h3><span>🕐</span> Orari di apertura</h3>
+                    <div class="hour-row">
+                        <span class="day">Martedì</span>
+                        <span class="time">10:00 - 13:00</span>
+                    </div>
+                    <div class="hour-row">
+                        <span class="day">Venerdì</span>
+                        <span class="time">15:00 - 19:00</span>
+                    </div>
+                    <p style="margin-top: 20px; color: var(--text-light); font-size: 0.95rem;">
+                        Per urgenze fuori orario, lascia un messaggio WhatsApp: ti richiamiamo appena possibile.
+                    </p>
+                </div>
+                <div class="info-box">
+                    <h3><span>📍</span> Dove trovarci</h3>
+                    <div class="contact-item">
+                        📍 Via Ugo Foscolo 51/53, 09124 Cagliari (CA)
+                    </div>
+                    <div class="contact-item">
+                        📞 <a href="tel:3517607495">351 760 7495</a>
+                    </div>
+                    <div class="contact-item">
+                        💬 <a href="https://wa.me/393517607495">WhatsApp</a>
+                    </div>
+                    <div class="contact-item">
+                        📧 <a href="/cdn-cgi/l/email-protection#2a43444c456a474f4e4349454e43484b594f5a58435c4b5e4504435e"><span class="__cf_email__" data-cfemail="523b3c343d123f37363b313d363b3033213722203b2433263d7c3b26">[email&#160;protected]</span></a>
+                    </div>
+                    <div style="margin-top: 25px;">
+                        <a href="tel:3517607495" class="btn-primary">📞 Chiama Ora</a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3><span>✉️</span> Scrivici subito</h3>
+                    <form action="mailto:info@medicodibaseprivato.it" method="post" enctype="text/plain">
+                        <div class="form-group">
+                            <label for="nome">Nome e Cognome</label>
+                            <input type="text" id="nome" name="nome" placeholder="Il tuo nome" required=""/>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="La tua email" required=""/>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Telefono</label>
+                            <input type="tel" id="telefono" name="telefono" placeholder="Il tuo numero"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="messaggio">Messaggio</label>
+                            <textarea id="messaggio" name="messaggio" placeholder="Scrivi il tuo messaggio..." required=""></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">📧 Invia Messaggio</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>Medico Privato Cagliari</h4>
+                <p>Via Ugo Foscolo 51/53<br/>09124 Cagliari (CA)</p>
+            </div>
+            <div class="footer-col">
+                <h4>Telefono</h4>
+                <p><a href="tel:3517607495">351 760 7495</a></p>
+            </div>
+            <div class="footer-col">
+                <h4>Email</h4>
+                <p><a href="/cdn-cgi/l/email-protection#137a7d757c537e76777a707c777a7172607663617a6572677c3d7a67"><span class="__cf_email__" data-cfemail="462f282029062b23222f2529222f2427352336342f30273229682f32">[email&#160;protected]</span></a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 Medico di Base Privato Cagliari - Tutti i diritti riservati | <a href="#">Privacy Policy</a> | <a href="#">Cookie Policy</a></p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/393517607495" class="whatsapp-float" title="Scrivi su WhatsApp">
+        💬
+    </a>
+
+    <!-- FAQ Script -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                document.querySelectorAll('.faq-item').forEach(faq => {
+                    faq.classList.remove('active');
+                });
+                
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+
+
+</body></html>
